@@ -1,11 +1,3 @@
-﻿/* $('#diplayer')[0].dataset.* // data user
-$('.current-song')[0].dataset.marquee = 'dda'; // title
-$('.current-song-logo')[0].style = "background-image: url('');"; // logo artist
-$('#diplayer')[0].dataset.autostart
-RH14290
-http://s0.radioheart.ru:8000/json.xsl?mount=/RH14290
-*/
-
 var domain = "http://s0.radioheart.ru:8000",mountpoint = "/"+$('#diplayer')[0].dataset.stream, mountpoint2 = "/"+$('#diplayer')[0].dataset.stream, nac = true, counter=0, url = domain+"/json_new.xsl?", slider = $('#player-volume');
 url+= "mount=" + mountpoint + "&callback=", volume = $('.volume');
 var domain2 = "http://myradio24.com/users/",mountpoint21 = $('#diplayer')[0].dataset.streamalt, mountpoint22 = $('#diplayer')[0].dataset.streamalt, nac2 = true, counter2=0, url2 = "/status.json";
@@ -48,9 +40,7 @@ function STATS (results)
                               $('#current-song-st')[0].href = "";
                               }
                       } else {
-                      //var tmpstr = nm["song"];
-                      //tmpstr = tmpstr.split(' - ');
-                      $.getJSON('http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(nm["artist"])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
+                      $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(nm["artist"])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
                       if (data2.artist!==''){
                           if (data2.artist.image[3]['#text']==''){
                               $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
@@ -114,7 +104,7 @@ function parseMusic(results)
                       } else {
                       var tmpstr = nm["title"];
                       tmpstr = tmpstr.split(' - ');
-                      $.getJSON('http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(tmpstr[0])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
+                      $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(tmpstr[0])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
                       if (data2.artist!==''){
                           if (data2.artist.image[3]['#text']==''){
                               $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
@@ -186,7 +176,7 @@ function init(){
     $('#player-st')[0].href = '#';
     $('#player-st')[0].target = "";
     }
-    $('#diplayer').append("<audio id=\"actobers\" preload=\"auto\" autobuffer display:none;><source src=\"http://live.myradio24.com:9000/"+mountpoint21+"\" type=\"audio/mp3\"><source src=\""+domain+mountpoint+"\" type=\"audio/mp3\">Ваш браузер не поддерживает технологию HTML5 Media Element!</audio>");
+    $('#diplayer').append("<audio id=\"actobers\" preload=\"auto\" autobuffer display:none;><source src=\"https://live.myradio24.com:9000/"+mountpoint21+"\" type=\"audio/mp3\"><source src=\""+domain+mountpoint+"\" type=\"audio/mp3\">Ваш браузер не поддерживает технологию HTML5 Media Element!</audio>");
     //console.log(check_audio());
     $('#actobers')[0].volume = $( "#slider" ).slider('value')/100;
     $("#player-play").click(function(){
@@ -243,7 +233,7 @@ function musicData()
     
   counter = counter+1;
     var wdata = new XMLHttpRequest();
-    wdata.open('GET', 'http://myradio24.com/users/22109/status.json', true);
+    wdata.open('GET', 'https://myradio24.com/users/22109/status.json', true);
     wdata.send();
     wdata.onreadystatechange = function() {
     nac2 = true;

@@ -176,7 +176,7 @@ function init(){
     $('#player-st')[0].href = '#';
     $('#player-st')[0].target = "";
     }
-    $('#diplayer').append("<audio id=\"actobers\" preload=\"auto\" autobuffer display:none;><source src=\"https://live.myradio24.com:9000/"+mountpoint21+"\" type=\"audio/mp3\"><source src=\""+domain+mountpoint+"\" type=\"audio/mp3\">Ваш браузер не поддерживает технологию HTML5 Media Element!</audio>");
+    $('#diplayer').append("<audio id=\"actobers\" preload=\"auto\" autobuffer display:none;><source src=\"http://live.myradio24.com:9000/"+mountpoint21+"\" type=\"audio/mp3\"><source src=\""+domain+mountpoint+"\" type=\"audio/mp3\">Ваш браузер не поддерживает технологию HTML5 Media Element!</audio>");
     //console.log(check_audio());
     $('#actobers')[0].volume = $( "#slider" ).slider('value')/100;
     $("#player-play").click(function(){

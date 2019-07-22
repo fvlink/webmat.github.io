@@ -1,4 +1,4 @@
-var domain = "http://s0.radioheart.ru:8000",mountpoint = "/"+$('#diplayer')[0].dataset.stream, mountpoint2 = "/"+$('#diplayer')[0].dataset.stream, nac = true, counter=0, url = domain+"/json_new.xsl?", slider = $('#player-volume');
+var domain = "https://s0.radioheart.ru:8000",mountpoint = "/"+$('#diplayer')[0].dataset.stream, mountpoint2 = "/"+$('#diplayer')[0].dataset.stream, nac = true, counter=0, url = domain.replace('http://','https://')+"/json_new.xsl?", slider = $('#player-volume');
 url+= "mount=" + mountpoint + "&callback=", volume = $('.volume');
 var domain2 = "http://myradio24.com/users/",mountpoint21 = $('#diplayer')[0].dataset.streamalt, mountpoint22 = $('#diplayer')[0].dataset.streamalt, nac2 = true, counter2=0, url2 = "/status.json";
 url2+= domain2+mountpoint21.replace('_live');

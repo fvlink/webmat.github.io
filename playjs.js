@@ -3,7 +3,30 @@ url+= "mount=" + mountpoint + "&callback=", volume = $('.volume');
 var domain2 = "http://myradio24.com/users/",mountpoint21 = $('#diplayer')[0].dataset.streamalt, mountpoint22 = $('#diplayer')[0].dataset.streamalt, nac2 = true, counter2=0, url2 = "/status.json";
 url2+= domain2+mountpoint21.replace('_live');
 var trackist = ['ZXbIFIorShBq','CreJ', 'nWYFScby', 'i', 'xUye', 'Fr', 'cHjkcc', 'qC', 'D'],
-	trackisting = ['1ee9901', 'd8ec',  'f5', 'b2b91', '3554', '2b', '9', '7bd5675'];
+  trackisting = ['1ee9901', 'd8ec',  'f5', 'b2b91', '3554', '2b', '9', '7bd5675'];
+var valvolglb;
+
+function savelocal(){
+var saves = localStorage;
+    saves.setItem("WEMAT", JSON.stringify({volume: $( "#slider" ).slider('value'),linksource: $('#actobers')[0].currentSrc,
+                                          state:""+$('#actobers')[0].paused+"",muted:""+$('#actobers')[0].muted+""}));
+}
+
+function loadlocal(){
+var saves = localStorage;
+  if (saves.getItem("WEMAT") != null){
+    var tmpld = JSON.parse(saves.getItem("WEMAT"));
+    $( "#slider").slider('value',tmpld.volume);
+    $('#actobers')[0].currentSrc = tmpld.linksource;
+    if (tmpld.state === "true") $('#actobers')[0].play(); else $('#actobers')[0].pause();
+    if (tmpld.muted === "true") $('#actobers')[0].muted = true; else $('#actobers')[0].muted = false;
+    if ($('#actobers')[0].muted === false){
+        $(this).addClass("active");
+      } else {
+        $(this).removeClass("active");
+      }
+  }
+}
 
 function STATS (results)
 {
@@ -179,6 +202,7 @@ function init(){
     }
     $('#diplayer').append("<audio id=\"actobers\" preload=\"auto\" autobuffer display:none;><source src=\"http://live.myradio24.com:9000/"+mountpoint21+"\" type=\"audio/mp3\"><source src=\""+domain+mountpoint+"\" type=\"audio/mp3\">Ваш браузер не поддерживает технологию HTML5 Media Element!</audio>");
     //console.log(check_audio());
+    loadlocal();
     $('#actobers')[0].volume = $( "#slider" ).slider('value')/100;
     $("#player-play").click(function(){
       playble();
@@ -191,6 +215,7 @@ function init(){
         $('#actobers')[0].muted = false;
         $(this).addClass("active");
       }
+      savelocal();
     });
     if ($('#diplayer')[0].dataset.autostart === "true")
       playble(); else $('#actobers')[0].pause();
@@ -218,9 +243,11 @@ function playble(){
     }*/
     musicData();
     $('#actobers')[0].play();
+    savelocal();
     $('#player-play')[0].innerHTML = '<i class="fa fa-pause"></i>';
   } else {
     $('#actobers')[0].pause();
+    savelocal();
     $('#player-play')[0].innerHTML = '<i class="fa fa-play"></i>';
   }
 }
@@ -273,6 +300,7 @@ $(function() {
     slide: function(event, ui) {
       var value = slider.slider('value');
       $('#actobers')[0].volume = value/100;
+      savelocal();
     },
   });
 });

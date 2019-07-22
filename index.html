@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Music & Tastes Player</title>
+	<link rel="stylesheet" href="player.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div class="content"></div>
+	<div id="diplayer" class="pan-b"
+	     data-stream="RH14290"
+	     data-streamalt="22109_live"
+	     data-autostart="true"
+	     data-volume="0.4"
+	     data-station="https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg"
+	     data-linkstation="http://#"
+	     data-playtext="Нажмите play для начала воспроизведения">
+	    <div class="play-wrapp">
+	    	<a id="player-st">
+	        <div class="logo" id="player-logo" title=""></div>
+	        <b id="player-stat"></b>
+	        </a>
+	        <div class="controls">
+	            <div class="play" id="player-play">
+	                <i class="fa fa-play"></i>
+	            </div>
+	            <div class="pause hidden" id="player-pause">
+	                <i class="fa fa-stop"></i>
+	            </div>
+	        </div>
+	        <a id="current-song-st">
+	        	<div class="current-song-logo" id="player-logo" title=""></div>
+	        </a>
+	        <div class="current-song marquee"
+	             id="player-current-song"
+	             data-marquee=""
+	        >
+	        </div>
+	        <div class="sound-control">
+	            <div class="mute-control">
+	                <div class="mutecontrol active" id="player-mute"></div>
+	            </div>
+	            <div class="volume-control">
+					<div id="slider"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<script src="playjs.js"></script>
+</body>
+</html>

@@ -50,8 +50,8 @@ function STATS (results)
                               $('.current-song-logo')[0].style = "background-image: url('"+data2.artist.image[3]['#text']+"');";
                               if ($('#diplayer')[0].dataset.background != 'false')
                               $('body')[0].style = "background-image: url('"+data2.artist.image[3]['#text'].replace('/34s/','300x300')+"'); background-size: cover;";
-                              if (data2.url.length !== 0){
-                              $('#current-song-st')[0].href = data2.url;
+                              if (data2.artist.url.length !== 0){
+                              $('#current-song-st')[0].href = data2.artist.url;
                               $('#current-song-st')[0].target = "_blank";
                               }
                               else
@@ -65,6 +65,7 @@ function STATS (results)
             }
         }
     }
+  console.log(results);
 }
 
 function parseMusic(results)
@@ -115,8 +116,8 @@ function parseMusic(results)
                               $('.current-song-logo')[0].style = "background-image: url('"+data2.artist.image[3]['#text']+"');";
                               if ($('#diplayer')[0].dataset.background != 'false')
                               $('body')[0].style = "background-image: url('"+data2.artist.image[3]['#text'].replace('/34s/','300x300')+"'); background-size: cover;";
-                              if (data2.url.length !== 0){
-                              $('#current-song-st')[0].href = data2.url;
+                              if (data2.artist.url.length !== 0){
+                              $('#current-song-st')[0].href = data2.artist.url;
                               $('#current-song-st')[0].target = "_blank";
                               }
                               else
@@ -235,7 +236,7 @@ function musicData()
     var wdata = new XMLHttpRequest();
     wdata.open('GET', 'https://myradio24.com/users/22109/status.json', true);
     wdata.send();
-    wdata.onreadystatechange = function() {
+    wdata.onloadend = function() {
     nac2 = true;
     script2.text = 'STATS ({"/'+mountpoint21+'":'+ wdata.responseText +'});';
     $('#getscript').append(script2);

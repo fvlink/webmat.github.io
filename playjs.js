@@ -57,18 +57,18 @@ function STATS (results)
                               }
                               else
                               {
-                              $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
+                              $('.current-song-logo')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png');";
                               if ($('#diplayer')[0].dataset.background != 'false')
-                              $('body')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg'); background-size: cover;";
+                              $('body')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png'); background-size: cover;";
                               $('#current-song-st')[0].href = "";
                               }
                       } else {
                       $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(nm["artist"])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
                       if (data2.artist!==''){
                           if (data2.artist.image[3]['#text']==''){
-                              $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
+                              $('.current-song-logo')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png');";
                               if ($('#diplayer')[0].dataset.background != 'false')
-                              $('body')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg'); background-size: cover;";
+                              $('body')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png'); background-size: cover;";
                           } else {
                               $('.current-song-logo')[0].style = "background-image: url('"+data2.artist.image[3]['#text']+"');";
                               if ($('#diplayer')[0].dataset.background != 'false')
@@ -120,9 +120,9 @@ function parseMusic(results)
                               }
                               else
                               {
-                              $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
+                              $('.current-song-logo')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png');";
                               if ($('#diplayer')[0].dataset.background != 'false')
-                              $('body')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg'); background-size: cover;";
+                              $('body')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png'); background-size: cover;";
                               $('#current-song-st')[0].href = "";
                               }
                       } else {
@@ -131,9 +131,9 @@ function parseMusic(results)
                       $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+encodeURIComponent(tmpstr[0])+'&api_key='+trackisting[5]+trackisting[4]+trackisting[7]+trackisting[1]+trackisting[3]+trackisting[0]+trackisting[2]+trackisting[6]+'&format=json', function(data2) {
                       if (data2.artist!==''){
                           if (data2.artist.image[3]['#text']==''){
-                              $('.current-song-logo')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg');";
+                              $('.current-song-logo')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png');";
                               if ($('#diplayer')[0].dataset.background != 'false')
-                              $('body')[0].style = "background-image: url('https://billing.radioheart.ru/avatars/15124128885a2596d897c85.jpg'); background-size: cover;";
+                              $('body')[0].style = "background-image: url('http://t92274lu.beget.tech/uploads/noartist.png'); background-size: cover;";
                               $('#current-song-st')[0].href = "";
                           } else {
                               $('.current-song-logo')[0].style = "background-image: url('"+data2.artist.image[3]['#text']+"');";
